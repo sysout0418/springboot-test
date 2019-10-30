@@ -3,10 +3,11 @@
 ### 개발환경
 
 ##### 주요환경
-* Spring boot 2.0.2
+* Spring boot 2.2.0
+* Spring Security 2.2.0
 * Java 8
 * mysql 5.7
-* ECMAScript 5
+* ECMAScript 6
 
 ##### 소스 폴더 설명
 ```
