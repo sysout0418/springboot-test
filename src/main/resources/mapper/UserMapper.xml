@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.elio.edu.login.dao.UserDao">
+
+    <select id="selectUser" parameterType="Map" resultType="Map">
+        SELECT USER_NO
+               , DIAL_CODE
+               , MDN
+               , EMAIL
+               , PROFILE_NAME
+               , PROFILE_IMAGE_URL
+               , CUSTOMER_TYPE
+               , ACCOUNT_PASSWORD
+               , PASSWORD_FAIL_COUNT
+               , LANGUAGE_CODE
+               , LAST_JOIN_DATE
+               , LAST_REQUEST_DATE
+               , LAST_PAYMENT_DATE
+               , LAST_CLOSE_DATE
+               , CUSTOMER_STATUS
+               , CLOSE_TYPE
+               , CLOSE_DESC
+               , BLOCK_YN
+               , DELETE_YN
+          FROM TB_CUSTOMER
+         WHERE EMAIL = #{EMAIL}
+               AND ACCOUNT_PASSWORD = #{ACCOUNT_PASSWORD}
+    </select>
+
+</mapper>
