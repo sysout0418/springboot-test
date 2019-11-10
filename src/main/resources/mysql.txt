@@ -1,0 +1,91 @@
+docker pull mysql
+docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=foresting1 --name mysql_server -v /Users/kim/datadir:/var/lib/mysql mysql
+docker exec -it mysql_server bash
+mysql> CREATE USER 'elio'@'%' IDENTIFIED BY 'foresting1';
+mysql> create database elio default character set utf8;
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'jmlim'@'%';
+mysql> flush privileges;
+mysql> quit
+docker start mysql_server
+
+IP : 192.168.99.100
+ACCOUNT : elio / foresting1
+
+CREATE TABLE TB_CUSTOMER
+(
+    `CUSTOMER_NO`                  INT     NOT NULL    AUTO_INCREMENT,
+    `DIAL_CODE`            CHAR(2)          NULL       ,
+    `MDN`                  VARCHAR(20)      NOT NULL    ,
+    `EMAIL`                VARCHAR(200)     NULL        ,
+    `PROFILE_NAME`         VARCHAR(100)     NULL       ,
+    `PROFILE_IMAGE_URL`    VARCHAR(500)     NULL        ,
+    `CUSTOMER_TYPE`        CHAR(2)          NULL        ,
+    `ACCOUNT_PASSWORD`     VARCHAR(200)     NULL        ,
+    `PASSWORD_FAIL_COUNT`  INT              NULL        DEFAULT 0 ,
+    `LANGUAGE_CODE`        CHAR(2)          NULL        ,
+    `LAST_JOIN_DATE`       DATETIME         NULL        ,
+    `LAST_REQUEST_DATE`    DATETIME         NULL        ,
+    `LAST_PAYMENT_DATE`    DATETIME         NULL      ,
+    `LAST_CLOSE_DATE`      DATETIME         NULL       ,
+    `CUSTOMER_STATUS`      CHAR(2)          NULL        DEFAULT '00' ,
+    `CLOSE_TYPE`           CHAR(2)          NULL        ,
+    `CLOSE_DESC`           VARCHAR(1000)    NULL        ,
+    `BLOCK_YN`             CHAR(1)          NULL      ,
+    `DELETE_YN`            CHAR(1)          NULL        DEFAULT 'N' ,
+    `INSERTED_ID`          VARCHAR(20)      NULL      ,
+    `INSERTED_DATE`        DATETIME         NULL        ,
+    `UPDATED_ID`           VARCHAR(20)      NULL       ,
+    `UPDATED_DATE`         DATETIME         NULL        ,
+    `UPDATED_DESC`         VARCHAR(1000)    NULL      ,
+     PRIMARY KEY(CUSTOMER_NO)
+);
+
+INSERT INTO TB_CUSTOMER(
+	DIAL_CODE
+	, MDN
+	, EMAIL
+	, PROFILE_NAME
+	, PROFILE_IMAGE_URL
+	, CUSTOMER_TYPE
+	, ACCOUNT_PASSWORD
+	, PASSWORD_FAIL_COUNT
+	, LANGUAGE_CODE
+	, LAST_JOIN_DATE
+	, LAST_REQUEST_DATE
+	, LAST_PAYMENT_DATE
+	, LAST_CLOSE_DATE
+	, CUSTOMER_STATUS
+	, CLOSE_TYPE
+	, CLOSE_DESC
+	, BLOCK_YN
+	, DELETE_YN
+	, INSERTED_ID
+	, INSERTED_DATE
+	, UPDATED_ID
+	, UPDATED_DATE
+	, UPDATED_DESC
+) VALUES(
+	'KR'
+	, '01039270323'
+	, 'sysout0418@naver.com'
+	, '김상일'
+	, ''
+	, '01'
+	, '1234'
+	, 0
+	, 'ko'
+	, NOW()
+	, NOW()
+	, NULL
+	, NULL
+	, '00'
+	, ''
+	, ''
+	, 'N'
+	, 'N'
+	, 'system'
+	, NOW()
+	, 'system'
+	, NOW()
+	, ''
+);
