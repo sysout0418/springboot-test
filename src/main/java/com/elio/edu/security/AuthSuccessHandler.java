@@ -15,7 +15,6 @@ public class AuthSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication) throws ServletException, IOException {
-
         response.setStatus(HttpServletResponse.SC_OK);
         // 성공 시 response를 json형태로 반환
         response.getWriter().print("{\"success\": true}");

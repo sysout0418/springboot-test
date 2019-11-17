@@ -1,12 +1,23 @@
 package com.elio.edu.login.service;
 
+import com.elio.edu.login.dao.UserDao;
+import com.elio.edu.login.dto.UserDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Map;
+@Service("UserService")
+public class UserService {
 
-@Service
-public interface UserService {
+    @Autowired
+    UserDao userDao;
 
-    Map<String, Object> selectUser(String email, String password);
+    public UserDto selectUser(String email, String password) {
+        UserDto userDto = new UserDto();
+        userDto.setEmail(email);
+        userDto.setAccountPassword(password);
+        userDto = userDao.selectUser(userDto);
+
+        return userDto;
+    }
 
 }

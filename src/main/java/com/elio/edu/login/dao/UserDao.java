@@ -1,14 +1,13 @@
 package com.elio.edu.login.dao;
 
+import com.elio.edu.login.dto.UserDto;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Map;
+import org.springframework.stereotype.Repository;
 
 @Mapper
-@Transactional
+@Repository
 public interface UserDao {
 
-    Map<String, Object> selectUser(Map<String, Object> param);
+    UserDto selectUser(UserDto userDto);
 
 }

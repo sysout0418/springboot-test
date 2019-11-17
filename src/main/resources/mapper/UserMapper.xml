@@ -5,8 +5,8 @@
 
 <mapper namespace="com.elio.edu.login.dao.UserDao">
 
-    <select id="selectUser" parameterType="Map" resultType="Map">
-        SELECT USER_NO
+    <select id="selectUser" parameterType="com.elio.edu.login.dto.UserDto" resultType="com.elio.edu.login.dto.UserDto">
+        SELECT CUSTOMER_NO
                , DIAL_CODE
                , MDN
                , EMAIL
@@ -26,8 +26,8 @@
                , BLOCK_YN
                , DELETE_YN
           FROM TB_CUSTOMER
-         WHERE EMAIL = #{EMAIL}
-               AND ACCOUNT_PASSWORD = #{ACCOUNT_PASSWORD}
+         WHERE EMAIL = #{email}
+               AND ACCOUNT_PASSWORD = #{accountPassword}
     </select>
 
 </mapper>

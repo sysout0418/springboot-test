@@ -1,18 +1,35 @@
 package com.elio.edu.login.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
 
 @Controller
-@RequestMapping(value = "/user", method = RequestMethod.POST)
+@RequestMapping("/user")
 public class LoginController {
 
-    @GetMapping("/login")
-    public String login(Model model) {
-        return "login";
+    private Logger logger = LoggerFactory.getLogger(LoginController.class);
+
+    @RequestMapping("/loginView")
+    public String loginView() {
+        return "login/loginView";
+    }
+
+    @RequestMapping("/forgotPasswordView")
+    public String forgotPasswordView() {
+        return "login/forgotPasswordView";
+    }
+
+    @RequestMapping("/registerView")
+    public String registerView() {
+        return "login/registerView";
+    }
+
+    @RequestMapping("/resetPasswordView")
+    public String resetPasswordView() {
+        return "login/resetPasswordView";
     }
 
 }
