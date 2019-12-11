@@ -11,10 +11,15 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class AuthProvider implements AuthenticationProvider {
@@ -24,10 +29,18 @@ public class AuthProvider implements AuthenticationProvider {
     @Autowired
     UserService userService;
 
+    private PasswordEncoder passwordEncoder;
+
     @Override
     public Authentication authenticate(Authentication authentication) {
+        String idForEncode = "bcrypt";
+        Map<String, PasswordEncoder> encoders = new HashMap<>();
+        encoders.put(idForEncode, new BCryptPasswordEncoder());
+        passwordEncoder = new DelegatingPasswordEncoder(idForEncode, encoders);
+
         String email = authentication.getName();
-        String password = HashUtil.sha256(authentication.getCredentials().toString());
+        //String password = HashUtil.sha256(authentication.getCredentials().toString());
+        String password  =passwordEncoder.encode(authentication.getCredentials().toString());
         logger.info("email : " + email);
         logger.info("password : " + password);
         UserDto userDto = userService.selectUser(email, password);
