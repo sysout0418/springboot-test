@@ -23,15 +23,23 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1'
     //compile group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2', version: '2.1.1.RELEASE'
     compile('org.apache.tomcat.embed:tomcat-embed-jasper')
     compile('javax.servlet:jstl:1.2')
+    compile 'org.webjars:jquery:3.2.1'
+    compile 'org.webjars:jquery-ui:1.12.1'
+    compile 'org.webjars:jquery-validation:1.11.1'
+    compile 'org.webjars:jquery-form:3.51'
+    compile 'org.webjars:popper.js:1.15.0'
+    compile 'org.webjars:bootstrap:4.0.0'
+    compile 'org.webjars:bootstrap-select:1.12.4'
+    compile 'org.webjars:font-awesome:4.7.0'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    runtimeOnly 'com.h2database:h2'
     runtimeOnly 'mysql:mysql-connector-java'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {

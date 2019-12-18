@@ -1,61 +1,66 @@
-<jsp:include page="../common/header.jsp" flush="true" />
+<jsp:include page="../common/header.jsp" flush="true"/>
 
-<body class="my-login-page">
-    <section class="h-100">
-        <div class="container h-100">
-            <div class="row justify-content-md-center h-100">
-                <div class="card-wrapper">
-                    <div class="brand">
-                        <img src="/resources/static/img/logo.jpg" alt="logo">
+<!--================login Area =================-->
+<section class="login_area p_100">
+    <div class="container">
+        <div class="login_inner">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="login_title">
+                        <h2>log in your account</h2>
+                        <p>Log in to your account to discovery all great features in this template.</p>
                     </div>
-                    <div class="card fat">
-                        <div class="card-body">
-                            <h4 class="card-title">Login</h4>
-                            <form method="POST" class="my-login-validation" novalidate="" action="/user/loginView">
-                                <div class="form-group">
-                                    <label for="email">E-Mail Address</label>
-                                    <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
-                                    <div class="invalid-feedback">
-                                        Email is invalid
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="password">Password
-                                        <a href="/user/forgotPasswordView" class="float-right">
-                                            Forgot Password?
-                                        </a>
-                                    </label>
-                                    <input id="password" type="password" class="form-control" name="password" required data-eye>
-                                    <div class="invalid-feedback">
-                                        Password is required
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="custom-checkbox custom-control">
-                                        <input type="checkbox" name="remember" id="remember" class="custom-control-input">
-                                        <label for="remember" class="custom-control-label">Remember Me</label>
-                                    </div>
-                                </div>
-
-                                <div class="form-group m-0">
-                                    <button type="submit" class="btn btn-primary btn-block">
-                                        Login
-                                    </button>
-                                </div>
-                                <div class="mt-4 text-center">
-                                    Don't have an account? <a href="/user/registerView">Create One</a>
-                                </div>
-                            </form>
+                    <form class="login_form row" action="/user/login" method="post">
+                        <div class="col-lg-12 form-group">
+                            <input class="form-control" type="text" name="username" maxlength="11" placeholder="Phone Number">
                         </div>
+                        <div class="col-lg-12 form-group">
+                            <input class="form-control" type="password" name="password" placeholder="Password">
+                        </div>
+                        <div class="col-lg-12 form-group">
+                            <div class="creat_account">
+                                <input type="checkbox" id="f-option" name="selector">
+                                <label for="f-option">Keep me logged in</label>
+                                <div class="check"></div>
+                            </div>
+                            <h4>Forgot your password ?</h4>
+                        </div>
+                        <div class="col-lg-12 form-group">
+                            <button type="submit" value="submit" class="btn update_btn form-control">Login</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-8">
+                    <div class="login_title">
+                        <h2>create account</h2>
+                        <p>Follow the steps below to create email account enjoy the great mail.com emailing experience.
+                            Vivamus tempus risus vel felis condimentum, non vehicula est iaculis.</p>
                     </div>
-                    <div class="footer">
-                        Copyright &copy; 2017 &mdash; Your Company
-                    </div>
+                    <form class="login_form row" action="/user/join" method="post">
+                        <div class="col-lg-6 form-group">
+                            <input class="form-control" type="text" name="mdn" placeholder="Phone Number">
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <input class="form-control" type="email" name="email" placeholder="Email">
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <input class="form-control" type="text" name="profileName" placeholder="User Name">
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <input class="form-control" type="password" name="accountPassword" placeholder="Password">
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <input class="form-control" type="password" placeholder="Re-Password">
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <button type="submit" value="submit" class="btn subs_btn form-control">register now</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </section>
-</body>
-</html>
+    </div>
+</section>
+<!--================End login Area =================-->
+
+<jsp:include page="../common/footer.jsp" flush="true"/>

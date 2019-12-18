@@ -1,18 +1,19 @@
 package com.elio.edu.main.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/main")
 public class MainController {
 
-    @GetMapping("/index")
-    public String login(Model model) {
-        return "main/index";
+    private Logger logger = LoggerFactory.getLogger(MainController.class);
+
+    // 메인 페이지
+    @GetMapping("/")
+    public String index() {
+        return "/main/index";
     }
 
 }
