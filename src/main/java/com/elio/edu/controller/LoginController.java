@@ -1,12 +1,13 @@
-package com.elio.edu.login.controller;
+package com.elio.edu.controller;
 
-import com.elio.edu.login.dto.UserDto;
-import com.elio.edu.login.service.UserService;
+import com.elio.edu.entity.UserEntity;
+import com.elio.edu.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -26,8 +27,8 @@ public class LoginController {
 
     // 회원가입 처리
     @PostMapping("/user/join")
-    public String goUserJoin(UserDto userDto) {
-        userService.joinUser(userDto);
+    public String goUserJoin(@ModelAttribute UserEntity user) {
+        userService.joinUser(user);
 
         return "redirect:/user/login";
     }

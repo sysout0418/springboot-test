@@ -3,9 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.elio.edu.login.dao.UserDao">
+<mapper namespace="com.elio.edu.login.domain.UserEntity">
 
-    <select id="selectUser" parameterType="com.elio.edu.login.dto.UserDto" resultType="com.elio.edu.login.dto.UserDto">
+    <!--<select id="selectUser" parameterType="com.elio.edu.login.domain.UserEntity" resultType="com.elio.edu.login.domain.UserEntity">
         SELECT CUSTOMER_NO
                , DIAL_CODE
                , MDN
@@ -28,6 +28,6 @@
           FROM TB_CUSTOMER
          WHERE EMAIL = #{email}
                AND ACCOUNT_PASSWORD = #{accountPassword}
-    </select>
+    </select>-->
 
 </mapper>

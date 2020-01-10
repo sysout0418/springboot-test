@@ -1,4 +1,4 @@
-package com.elio.edu.main.controller;
+package com.elio.edu.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

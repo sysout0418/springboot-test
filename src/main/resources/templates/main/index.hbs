@@ -1,4 +1,4 @@
-<jsp:include page="../common/header2.jsp" flush="true"/>
+{{> common/header2}}
 
 <!--================Slider Area =================-->
 <section class="main_slider_area">
@@ -7,11 +7,11 @@
             <ul>
                 <li data-index="rs-1587" data-transition="fade" data-slotamount="default" data-hideafterloop="0"
                     data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="300"
-                    data-thumb="/resources/img/home-slider/slider-1.jpg" data-rotate="0" data-saveperformance="off"
+                    data-thumb="{{springMacroRequestContext.request.contextPath}}/img/home-slider/slider-1.jpg" data-rotate="0" data-saveperformance="off"
                     data-title="Creative" data-param1="01" data-param2="" data-param3="" data-param4="" data-param5=""
                     data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                     <!-- MAIN IMAGE -->
-                    <img src="/resources/img/home-slider/slider-1.jpg" alt="" data-bgposition="center center" data-bgfit="cover"
+                    <img src="{{springMacroRequestContext.request.contextPath}}/img/home-slider/slider-1.jpg" alt="" data-bgposition="center center" data-bgfit="cover"
                          data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
 
                     <!-- LAYER NR. 1 -->
@@ -31,7 +31,7 @@
                              data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:0px;s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]"
                              data-textAlign="['left','left','left','left','left','center']"
                              style="z-index: 8;font-family: Montserrat,sans-serif;font-weight:700;color:#29263a;"><img
-                                src="/resources/img/home-slider/2017-text.png" alt=""></div>
+                                src="{{springMacroRequestContext.request.contextPath}}/img/home-slider/2017-text.png" alt=""></div>
 
                         <div class="tp-caption tp-resizeme secand_text"
                              data-x="['right','right','right','center','center',]"
@@ -67,11 +67,11 @@
                 </li>
                 <li data-index="rs-1588" data-transition="fade" data-slotamount="default" data-hideafterloop="0"
                     data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="300"
-                    data-thumb="/resources/img/home-slider/slider-2.jpg" data-rotate="0" data-saveperformance="off"
+                    data-thumb="{{springMacroRequestContext.request.contextPath}}/img/home-slider/slider-2.jpg" data-rotate="0" data-saveperformance="off"
                     data-title="Creative" data-param1="01" data-param2="" data-param3="" data-param4="" data-param5=""
                     data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                     <!-- MAIN IMAGE -->
-                    <img src="/resources/img/home-slider/slider-1.jpg" alt="" data-bgposition="center center" data-bgfit="cover"
+                    <img src="{{springMacroRequestContext.request.contextPath}}/img/home-slider/slider-1.jpg" alt="" data-bgposition="center center" data-bgfit="cover"
                          data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
                     <!-- LAYERS -->
                     <!-- LAYERS -->
@@ -93,7 +93,7 @@
                              data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;&quot;,&quot;mask&quot;:&quot;x:0px;y:0px;s:inherit;e:inherit;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:1500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:[175%];&quot;,&quot;mask&quot;:&quot;x:inherit;y:inherit;s:inherit;e:inherit;&quot;,&quot;ease&quot;:&quot;Power2.easeInOut&quot;}]"
                              data-textAlign="['left','left','left','left','left','center']"
                              style="z-index: 8;font-family: Montserrat,sans-serif;font-weight:700;color:#29263a;"><img
-                                src="/resources/img/home-slider/2017-text.png" alt=""></div>
+                                src="{{springMacroRequestContext.request.contextPath}}/img/home-slider/2017-text.png" alt=""></div>
 
                         <div class="tp-caption tp-resizeme secand_text"
                              data-x="['right','right','right','center','center',]"
@@ -139,7 +139,7 @@
         <div class="row feature_inner">
             <div class="col-lg-5">
                 <div class="f_add_item">
-                    <div class="f_add_img"><img class="img-fluid" src="/resources/img/feature-add/f-add-1.jpg" alt=""></div>
+                    <div class="f_add_img"><img class="img-fluid" src="{{springMacroRequestContext.request.contextPath}}/img/feature-add/f-add-1.jpg" alt=""></div>
                     <div class="f_add_hover">
                         <h4>Best Summer <br/>Collection</h4>
                         <a class="add_btn" href="#">Shop Now <i class="arrow_right"></i></a>
@@ -149,7 +149,7 @@
             </div>
             <div class="col-lg-4">
                 <div class="f_add_item right_dir">
-                    <div class="f_add_img"><img class="img-fluid" src="/resources/img/feature-add/f-add-2.jpg" alt=""></div>
+                    <div class="f_add_img"><img class="img-fluid" src="{{springMacroRequestContext.request.contextPath}}/img/feature-add/f-add-2.jpg" alt=""></div>
                     <div class="f_add_hover">
                         <h4>Best Summer <br/>Collection</h4>
                         <a class="add_btn" href="#">Shop Now <i class="arrow_right"></i></a>
@@ -159,7 +159,7 @@
             </div>
             <div class="col-lg-3">
                 <div class="f_add_item">
-                    <div class="f_add_img"><img class="img-fluid" src="/resources/img/feature-add/f-add-3.jpg" alt=""></div>
+                    <div class="f_add_img"><img class="img-fluid" src="{{springMacroRequestContext.request.contextPath}}/img/feature-add/f-add-3.jpg" alt=""></div>
                 </div>
             </div>
         </div>
@@ -177,7 +177,7 @@
             <div class="item">
                 <div class="l_product_item">
                     <div class="l_p_img">
-                        <img src="/resources/img/product/l-product-1.jpg" alt="">
+                        <img src="{{springMacroRequestContext.request.contextPath}}/img/product/l-product-1.jpg" alt="">
                     </div>
                     <div class="l_p_text">
                         <ul>
@@ -194,7 +194,7 @@
                 </div>
                 <div class="l_product_item">
                     <div class="l_p_img">
-                        <img src="/resources/img/product/l-product-5.jpg" alt="">
+                        <img src="{{springMacroRequestContext.request.contextPath}}/img/product/l-product-5.jpg" alt="">
                     </div>
                     <div class="l_p_text">
                         <ul>
@@ -210,7 +210,7 @@
             <div class="item">
                 <div class="l_product_item">
                     <div class="l_p_img">
-                        <img src="/resources/img/product/l-product-2.jpg" alt="">
+                        <img src="{{springMacroRequestContext.request.contextPath}}/img/product/l-product-2.jpg" alt="">
                     </div>
                     <div class="l_p_text">
                         <ul>
@@ -227,7 +227,7 @@
                 </div>
                 <div class="l_product_item">
                     <div class="l_p_img">
-                        <img src="/resources/img/product/l-product-6.jpg" alt="">
+                        <img src="{{springMacroRequestContext.request.contextPath}}/img/product/l-product-6.jpg" alt="">
                     </div>
                     <div class="l_p_text">
                         <ul>
@@ -246,7 +246,7 @@
             <div class="item">
                 <div class="l_product_item">
                     <div class="l_p_img">
-                        <img src="/resources/img/product/l-product-3.jpg" alt="">
+                        <img src="{{springMacroRequestContext.request.contextPath}}/img/product/l-product-3.jpg" alt="">
                     </div>
                     <div class="l_p_text">
                         <ul>
@@ -260,7 +260,7 @@
                 </div>
                 <div class="l_product_item">
                     <div class="l_p_img">
-                        <img src="/resources/img/product/l-product-7.jpg" alt="">
+                        <img src="{{springMacroRequestContext.request.contextPath}}/img/product/l-product-7.jpg" alt="">
                     </div>
                     <div class="l_p_text">
                         <ul>
@@ -276,7 +276,7 @@
             <div class="item">
                 <div class="l_product_item">
                     <div class="l_p_img">
-                        <img src="/resources/img/product/l-product-4.jpg" alt="">
+                        <img src="{{springMacroRequestContext.request.contextPath}}/img/product/l-product-4.jpg" alt="">
                     </div>
                     <div class="l_p_text">
                         <ul>
@@ -293,7 +293,7 @@
                 </div>
                 <div class="l_product_item">
                     <div class="l_p_img">
-                        <img src="/resources/img/product/l-product-8.jpg" alt="">
+                        <img src="{{springMacroRequestContext.request.contextPath}}/img/product/l-product-8.jpg" alt="">
                     </div>
                     <div class="l_p_text">
                         <ul>
@@ -317,7 +317,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="f_add_item white_add">
-                    <div class="f_add_img"><img class="img-fluid" src="/resources/img/feature-add/f-add-4.jpg" alt=""></div>
+                    <div class="f_add_img"><img class="img-fluid" src="{{springMacroRequestContext.request.contextPath}}/img/feature-add/f-add-4.jpg" alt=""></div>
                     <div class="f_add_hover">
                         <h4>Best Summer <br/>Collection</h4>
                         <a class="add_btn" href="#">Shop Now <i class="arrow_right"></i></a>
@@ -326,7 +326,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="f_add_item white_add">
-                    <div class="f_add_img"><img class="img-fluid" src="/resources/img/feature-add/f-add-5.jpg" alt=""></div>
+                    <div class="f_add_img"><img class="img-fluid" src="{{springMacroRequestContext.request.contextPath}}/img/feature-add/f-add-5.jpg" alt=""></div>
                     <div class="f_add_hover">
                         <h4>Best Summer <br/>Collection</h4>
                         <a class="add_btn" href="#">Shop Now <i class="arrow_right"></i></a>
@@ -359,7 +359,7 @@
                     </div>
                     <div class="col-lg-6 col-sm-4">
                         <div class="p_list_img">
-                            <img src="/resources/img/product/p-categories-list/product-l-1.jpg" alt="">
+                            <img src="{{springMacroRequestContext.request.contextPath}}/img/product/p-categories-list/product-l-1.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -381,7 +381,7 @@
                     </div>
                     <div class="col-lg-6 col-sm-4">
                         <div class="p_list_img">
-                            <img src="/resources/img/product/p-categories-list/product-l-2.jpg" alt="">
+                            <img src="{{springMacroRequestContext.request.contextPath}}/img/product/p-categories-list/product-l-2.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -403,7 +403,7 @@
                     </div>
                     <div class="col-lg-6 col-sm-4">
                         <div class="p_list_img">
-                            <img src="/resources/img/product/p-categories-list/product-l-3.jpg" alt="">
+                            <img src="{{springMacroRequestContext.request.contextPath}}/img/product/p-categories-list/product-l-3.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -426,7 +426,7 @@
                         <div class="f_product_inner">
                             <div class="media">
                                 <div class="d-flex">
-                                    <img src="/resources/img/product/featured-product/f-p-1.jpg" alt="">
+                                    <img src="{{springMacroRequestContext.request.contextPath}}/img/product/featured-product/f-p-1.jpg" alt="">
                                 </div>
                                 <div class="media-body">
                                     <h4>Oxford Shirt</h4>
@@ -435,7 +435,7 @@
                             </div>
                             <div class="media">
                                 <div class="d-flex">
-                                    <img src="/resources/img/product/featured-product/f-p-2.jpg" alt="">
+                                    <img src="{{springMacroRequestContext.request.contextPath}}/img/product/featured-product/f-p-2.jpg" alt="">
                                 </div>
                                 <div class="media-body">
                                     <h4>Puffer Jacket</h4>
@@ -444,7 +444,7 @@
                             </div>
                             <div class="media">
                                 <div class="d-flex">
-                                    <img src="/resources/img/product/featured-product/f-p-3.jpg" alt="">
+                                    <img src="{{springMacroRequestContext.request.contextPath}}/img/product/featured-product/f-p-3.jpg" alt="">
                                 </div>
                                 <div class="media-body">
                                     <h4>Leather Bag</h4>
@@ -453,7 +453,7 @@
                             </div>
                             <div class="media">
                                 <div class="d-flex">
-                                    <img src="/resources/img/product/featured-product/f-p-4.jpg" alt="">
+                                    <img src="{{springMacroRequestContext.request.contextPath}}/img/product/featured-product/f-p-4.jpg" alt="">
                                 </div>
                                 <div class="media-body">
                                     <h4>Casual Shoes</h4>
@@ -475,7 +475,7 @@
                             <div class="item shoes">
                                 <div class="fillter_product_item bags">
                                     <div class="f_p_img">
-                                        <img src="/resources/img/product/fillter-product/f-product-1.jpg" alt="">
+                                        <img src="{{springMacroRequestContext.request.contextPath}}/img/product/fillter-product/f-product-1.jpg" alt="">
                                         <h5 class="sale">Sale</h5>
                                     </div>
                                     <div class="f_p_text">
@@ -487,7 +487,7 @@
                             <div class="item woman shoes bags">
                                 <div class="fillter_product_item">
                                     <div class="f_p_img">
-                                        <img src="/resources/img/product/fillter-product/f-product-2.jpg" alt="">
+                                        <img src="{{springMacroRequestContext.request.contextPath}}/img/product/fillter-product/f-product-2.jpg" alt="">
                                         <h5 class="new">New</h5>
                                     </div>
                                     <div class="f_p_text">
@@ -502,7 +502,7 @@
                             <div class="item woman shoes">
                                 <div class="fillter_product_item">
                                     <div class="f_p_img">
-                                        <img src="/resources/img/product/fillter-product/f-product-3.jpg" alt="">
+                                        <img src="{{springMacroRequestContext.request.contextPath}}/img/product/fillter-product/f-product-3.jpg" alt="">
                                         <h5 class="discount">-10%</h5>
                                     </div>
                                     <div class="f_p_text">
@@ -514,7 +514,7 @@
                             <div class="item shoes">
                                 <div class="fillter_product_item bags">
                                     <div class="f_p_img">
-                                        <img src="/resources/img/product/fillter-product/f-product-1.jpg" alt="">
+                                        <img src="{{springMacroRequestContext.request.contextPath}}/img/product/fillter-product/f-product-1.jpg" alt="">
                                         <h5 class="sale">Sale</h5>
                                     </div>
                                     <div class="f_p_text">
@@ -526,7 +526,7 @@
                             <div class="item woman shoes bags">
                                 <div class="fillter_product_item">
                                     <div class="f_p_img">
-                                        <img src="/resources/img/product/fillter-product/f-product-2.jpg" alt="">
+                                        <img src="{{springMacroRequestContext.request.contextPath}}/img/product/fillter-product/f-product-2.jpg" alt="">
                                         <h5 class="new">New</h5>
                                     </div>
                                     <div class="f_p_text">
@@ -541,7 +541,7 @@
                             <div class="item woman shoes">
                                 <div class="fillter_product_item">
                                     <div class="f_p_img">
-                                        <img src="/resources/img/product/fillter-product/f-product-3.jpg" alt="">
+                                        <img src="{{springMacroRequestContext.request.contextPath}}/img/product/fillter-product/f-product-3.jpg" alt="">
                                         <h5 class="discount">-10%</h5>
                                     </div>
                                     <div class="f_p_text">
@@ -553,7 +553,7 @@
                             <div class="item shoes">
                                 <div class="fillter_product_item bags">
                                     <div class="f_p_img">
-                                        <img src="/resources/img/product/fillter-product/f-product-1.jpg" alt="">
+                                        <img src="{{springMacroRequestContext.request.contextPath}}/img/product/fillter-product/f-product-1.jpg" alt="">
                                         <h5 class="sale">Sale</h5>
                                     </div>
                                     <div class="f_p_text">
@@ -565,7 +565,7 @@
                             <div class="item woman shoes bags">
                                 <div class="fillter_product_item">
                                     <div class="f_p_img">
-                                        <img src="/resources/img/product/fillter-product/f-product-2.jpg" alt="">
+                                        <img src="{{springMacroRequestContext.request.contextPath}}/img/product/fillter-product/f-product-2.jpg" alt="">
                                         <h5 class="new">New</h5>
                                     </div>
                                     <div class="f_p_text">
@@ -580,7 +580,7 @@
                             <div class="item woman shoes">
                                 <div class="fillter_product_item">
                                     <div class="f_p_img">
-                                        <img src="/resources/img/product/fillter-product/f-product-3.jpg" alt="">
+                                        <img src="{{springMacroRequestContext.request.contextPath}}/img/product/fillter-product/f-product-3.jpg" alt="">
                                         <h5 class="discount">-10%</h5>
                                     </div>
                                     <div class="f_p_text">
@@ -608,7 +608,7 @@
             <div class="row">
                 <div class="col-lg-4 col-sm-6">
                     <div class="from_blog_item">
-                        <img class="img-fluid" src="/resources/img/blog/from-blog/f-blog-1.jpg" alt="">
+                        <img class="img-fluid" src="{{springMacroRequestContext.request.contextPath}}/img/blog/from-blog/f-blog-1.jpg" alt="">
                         <div class="f_blog_text">
                             <h5>fashion</h5>
                             <p>Neque porro quisquam est qui dolorem ipsum</p>
@@ -618,7 +618,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <div class="from_blog_item">
-                        <img class="img-fluid" src="/resources/img/blog/from-blog/f-blog-2.jpg" alt="">
+                        <img class="img-fluid" src="{{springMacroRequestContext.request.contextPath}}/img/blog/from-blog/f-blog-2.jpg" alt="">
                         <div class="f_blog_text">
                             <h5>fashion</h5>
                             <p>Neque porro quisquam est qui dolorem ipsum</p>
@@ -628,7 +628,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <div class="from_blog_item">
-                        <img class="img-fluid" src="/resources/img/blog/from-blog/f-blog-3.jpg" alt="">
+                        <img class="img-fluid" src="{{springMacroRequestContext.request.contextPath}}/img/blog/from-blog/f-blog-3.jpg" alt="">
                         <div class="f_blog_text">
                             <h5>fashion</h5>
                             <p>Neque porro quisquam est qui dolorem ipsum</p>
@@ -642,4 +642,4 @@
 </section>
 <!--================End Form Blog Area =================-->
 
-<jsp:include page="../common/footer.jsp" flush="true"/>
+{{> common/footer}}

@@ -7,18 +7,32 @@ spring:
   output:
     ansi:
       enabled: always
-  mvc:
-    view:
-      prefix: /WEB-INF/views/
-      suffix: .jsp
-    static-path-pattern: /resources/**
+#  mvc:
+#    view:
+#      prefix: /WEB-INF/views/
+#      suffix: .jsp
+#    static-path-pattern: /resources/**
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     open-in-view: false
     show-sql: true
-    hibernate:
-      format_sql: true
-      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+    generate-ddl: true
+
+mybatis:
+  mapper-locations: mapper/*Mapper.xml
+
+handlebars:
+  prettyPrint: true
+  exposeRequestAttributes: false
+  exposeSessionAttributes: true
+  allowRequestOverride: true
+  exposeSpringMacroHelpers: true
+  resolver:
+    method: true
+    field: true
 
 logging:
   level:

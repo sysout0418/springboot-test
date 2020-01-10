@@ -1,4 +1,4 @@
-package com.elio.edu.login.domain;
+package com.elio.edu.security;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
