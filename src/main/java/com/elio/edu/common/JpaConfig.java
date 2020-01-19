@@ -1,4 +1,4 @@
-package com.elio.edu.util;
+package com.elio.edu.common;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

@@ -1,60 +1,55 @@
 package com.elio.edu.controller;
 
-import com.elio.edu.entity.UserEntity;
 import com.elio.edu.service.UserService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
+@Slf4j
 @Controller
 public class LoginController {
-
-    private Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     @Autowired
     private UserService userService;
 
     // 회원가입 페이지
-    @GetMapping("/user/join")
+    @GetMapping("/join")
     public String userJoin() {
-        return "/login/join";
+        return "join";
     }
 
     // 회원가입 처리
-    @PostMapping("/user/join")
-    public String goUserJoin(@ModelAttribute UserEntity user) {
-        userService.joinUser(user);
+    @PostMapping("/join")
+    @ResponseBody
+    public Map<String, Object> goUserJoin(@RequestBody Map<String, Object> param) {
+        log.info("param > " + param);
+        Map<String, Object> result = new HashMap<>();
 
-        return "redirect:/user/login";
+        userService.joinUser(param);
+
+        result.put("result_code", "0");
+
+        return result;
     }
 
     // 로그인 페이지
-    @GetMapping("/user/login")
+    @GetMapping("/login")
     public String login() {
-        return "/login/loginView";
-    }
-
-    // 로그인 결과 페이지
-    @GetMapping("/user/login/result")
-    public String dispLoginResult() {
-        return "redirect:/";
-    }
-
-    // 로그아웃 결과 페이지
-    @GetMapping("/user/logout/result")
-    public String dispLogout() {
-        return "redirect:/";
+        return "login";
     }
 
     // 접근 거부 페이지
-    @GetMapping("/user/denied")
+    @GetMapping("/denied")
     public String dispDenied() {
-        return "/denied";
+        return "denied";
     }
 
     // 내 정보 페이지
@@ -66,7 +61,7 @@ public class LoginController {
     // 어드민 페이지
     @GetMapping("/admin")
     public String adminMain() {
-        return "/admin/adminMain";
+        return "admin/adminMain";
     }
 
 }

@@ -1,6 +1,5 @@
 package com.elio.edu.security;
 
-import com.elio.edu.serviceImpl.UserServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,7 +8,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -26,13 +24,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     AuthSuccessHandler authSuccessHandler;*/
 
     @Bean
-    UserDetailsService customUserService() {
-        return new UserServiceImpl();
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+    public CustomLoginService getCustomerLoginService() {
+        return new CustomLoginService();
     }
 
     @Override
@@ -49,30 +47,33 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        // csrf disabled
         http.csrf().disable();
+
         http.authorizeRequests()
                 // 페이지 권한 설정
+                .antMatchers("/join").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/user/myInfo").hasRole("MEMBER")
-                .antMatchers("/**").permitAll()
-                .and() // 로그인 설정
+            .and()
+                // 로그인 설정
                 .formLogin()
-                .loginPage("/user/login")
-                .defaultSuccessUrl("/user/login/result")
+                .loginPage("/login")
+                .defaultSuccessUrl("/")
                 .permitAll()
-                .and() // 로그아웃 설정
+            .and()
+                // 로그아웃 설정
                 .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
-                .logoutSuccessUrl("/user/logout/result")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login")
                 .invalidateHttpSession(true)
-                .and()
+            .and()
                 // 403 예외처리 핸들링
                 .exceptionHandling().accessDeniedPage("/user/denied");
     }
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(customUserService()).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(getCustomerLoginService()).passwordEncoder(passwordEncoder());
     }
 
 }

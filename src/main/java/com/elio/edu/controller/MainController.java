@@ -1,19 +1,25 @@
 package com.elio.edu.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+@Slf4j
 @Controller
 public class MainController {
 
-    private Logger logger = LoggerFactory.getLogger(MainController.class);
+    //private Logger logger = LoggerFactory.getLogger(MainController.class);
 
     // 메인 페이지
     @GetMapping("/")
     public String index() {
-        return "/main/index";
+        log.info("index()");
+        return "index";
+    }
+
+    @GetMapping("/error")
+    public String error() {
+        return "error/404";
     }
 
 }

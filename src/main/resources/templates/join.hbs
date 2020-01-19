@@ -1,0 +1,93 @@
+{{> header}}
+
+<!--================Categories Banner Area =================-->
+<section class="solid_banner_area">
+    <div class="container">
+        <div class="solid_banner_inner">
+            <h3>Join</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Join</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--================End Categories Banner Area =================-->
+
+<!--================login Area =================-->
+<section class="login_area p_100">
+    <div class="container" id="container">
+        <div class="login_inner">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="login_title">
+                        <h2>create account</h2>
+                        <p>Follow the steps below to create email account enjoy the great mail.com emailing experience.
+                            Vivamus tempus risus vel felis condimentum, non vehicula est iaculis.</p>
+                    </div>
+                    <form class="login_form row">
+                        <div class="col-lg-6 form-group">
+                            <input class="form-control" type="text" name="mdn" placeholder="Phone Number" v-model="mdn">
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <input class="form-control" type="email" name="email" placeholder="Email" v-model="email">
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <input class="form-control" type="text" name="profileName" placeholder="User Name" v-model="profileName">
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <input class="form-control" type="password" name="accountPassword" placeholder="Password" v-model="accountPassword">
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <input class="form-control" type="password" placeholder="Re-Password" v-model="reAccountPassword">
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <button type="button" value="submit" class="btn subs_btn form-control" v-on:click="registerUser">register now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End login Area =================-->
+{{> footer}}
+
+<script>
+    Vue.config.devtools = true;
+    var vm = new Vue({
+        el: '#container',
+        data: {
+            mdn: '',
+            email: '',
+            profileName: '',
+            accountPassword: '',
+            reAccountPassword: ''
+        },
+        methods: {
+            registerUser: function() {
+                if (this.accountPassword === this.reAccountPassword) {
+                    axios.post('/join', {
+                        mdn: this.mdn,
+                        email: this.email,
+                        profileName: this.profileName,
+                        accountPassword: this.accountPassword,
+                        reAccountPassword: this.reAccountPassword
+                    })
+                    .then(function (response) {
+                        if (response.data.result_code === '0') {
+                            location.href = "/";
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+                } else {
+                    alert('비밀번호를 확인하세요.');
+                }
+            },
+
+        }
+    });
+
+</script>

@@ -2,41 +2,33 @@ package com.elio.edu.serviceImpl;
 
 import com.elio.edu.entity.UserEntity;
 import com.elio.edu.repository.UserRepository;
-import com.elio.edu.security.Role;
 import com.elio.edu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 @Service
-public class UserServiceImpl implements UserDetailsService, UserService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
 
-    @Override
-    public UserEntity findByMdn(String mdn) {
-        return userRepository.findByMdn(mdn);
-    }
-
     @Transactional
-    public void joinUser(UserEntity user) {
-
+    public void joinUser(Map<String, Object> param) {
+        UserEntity user = new UserEntity();
+        user.setMdn((String) param.get("mdn"));
+        user.setEmail((String) param.get("email"));
+        user.setProfileName((String) param.get("profileName"));
         user.setDialCode("KR");
         user.setProfileImageUrl(null);
         user.setCustomerType("01");
         // 비밀번호 암호화
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        user.setAccountPassword(passwordEncoder.encode(user.getAccountPassword()));
+        user.setAccountPassword(passwordEncoder.encode((String) param.get("accountPassword")));
         user.setPasswordFailCount(0);
         user.setLanguageCode("ko");
         user.setLastRequestDate(LocalDateTime.now());
@@ -57,21 +49,5 @@ public class UserServiceImpl implements UserDetailsService, UserService {
         userRepository.save(user);
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserEntity user = this.findByMdn(username);
-        if (user == null) {
-            throw new UsernameNotFoundException("회원정보 없음");
-        }
-        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-
-        if ("01039270323".equals(username)) {
-            authorities.add(new SimpleGrantedAuthority(Role.ADMIN.getValue()));
-        } else {
-            authorities.add(new SimpleGrantedAuthority(Role.MEMBER.getValue()));
-        }
-
-        return new org.springframework.security.core.userdetails.User(user.getMdn(), user.getAccountPassword(), authorities);
-    }
 
 }

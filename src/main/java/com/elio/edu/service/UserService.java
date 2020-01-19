@@ -1,11 +1,9 @@
 package com.elio.edu.service;
 
-import com.elio.edu.entity.UserEntity;
+import java.util.Map;
 
 public interface UserService {
 
-    UserEntity findByMdn(String mdn);
-
-    void joinUser(UserEntity user);
+    void joinUser(Map<String, Object> param);
 
 }
