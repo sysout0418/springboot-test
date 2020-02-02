@@ -1,6 +1,7 @@
 package com.elio.edu.security;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -20,8 +21,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     /*@Autowired
     AuthFailureHandler authFailureHandler;*/
 
-    /*@Autowired
-    AuthSuccessHandler authSuccessHandler;*/
+    @Autowired
+    LoginSuccessHandler loginSuccessHandler;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -53,12 +54,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 // 페이지 권한 설정
                 .antMatchers("/join").permitAll()
+                .antMatchers("/**").hasAnyRole("ADMIN", "USER")
                 .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/file/**").hasRole("ADMIN")
+                .antMatchers("/file/detail").hasRole("USER")
             .and()
                 // 로그인 설정
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/")
+                .successHandler(loginSuccessHandler)
+                //.defaultSuccessUrl("/")
                 .permitAll()
             .and()
                 // 로그아웃 설정

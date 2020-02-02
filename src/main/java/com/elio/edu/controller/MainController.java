@@ -11,9 +11,8 @@ public class MainController {
     //private Logger logger = LoggerFactory.getLogger(MainController.class);
 
     // 메인 페이지
-    @GetMapping("/")
+    @GetMapping("/index")
     public String index() {
-        log.info("index()");
         return "index";
     }
 

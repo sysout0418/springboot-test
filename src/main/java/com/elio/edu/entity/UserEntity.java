@@ -86,4 +86,6 @@ public class UserEntity {
     @Column(name = "UPDATED_DESC")
     private String updatedDesc;
 
+    public UserEntity() {}
+
 }

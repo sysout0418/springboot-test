@@ -169,46 +169,74 @@
 <!--================End Feature Add Area =================-->
 
 <!--================Our Latest Product Area =================-->
-<section class="our_latest_product">
+<style>
+    .container {
+        padding: 2rem 0rem;
+    }
+    h4 {
+        margin: 2rem 0rem 1rem;
+    }
+    .table-image td, th {
+        vertical-align: middle;
+    }
+</style>
+<div class="container" id="fileList">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-image">
+                <thead>
+                <tr>
+                    <th scope="col">번호</th>
+                    <th scope="col">이미지</th>
+                    <th scope="col">제목</th>
+                    <th scope="col">파일명</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="file in fileArray">
+                    <th scope="row">{file.fileNo}</th>
+                    <td class="w-25">
+                        <a href="#" v-on:click="goFileDetail(file.fileNo)">
+                            <img :src="file.fileImageUrl" class="img-fluid img-thumbnail" alt="Sheep">
+                        </a>
+                    </td>
+                    <td>{file.title}</td>
+                    <td>{file.fileName}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!--<section class="our_latest_product" id="fileList">
     <div class="container">
         <div class="s_m_title">
             <h2>Our Latest Product</h2>
         </div>
         <div class="l_product_slider owl-carousel">
-            <div class="item">
+            <div class="item" v-for="file in fileArray">
                 <div class="l_product_item">
                     <div class="l_p_img">
-                        <img src="{{springMacroRequestContext.request.contextPath}}/img/product/l-product-1.jpg" alt="">
+                        <img src="{{springMacroRequestContext.request.contextPath}}/img/product/l-product-2.jpg" alt="">
                     </div>
                     <div class="l_p_text">
                         <ul>
-                            <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                            <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                            <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
+                            &lt;!&ndash;<li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>&ndash;&gt;
+                            <li><a class="add_cart_btn" href="#">상세보기</a></li>
+                            &lt;!&ndash;<li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>&ndash;&gt;
                         </ul>
-                        <h4>Womens Libero</h4>
+                        <h4>{file.fileName}</h4>
+                        <h5>{file.title}</h5>
+                        &lt;!&ndash;<h4>Womens Libero</h4>
                         <h5>
                             <del>$45.50</del>
                             $40
-                        </h5>
-                    </div>
-                </div>
-                <div class="l_product_item">
-                    <div class="l_p_img">
-                        <img src="{{springMacroRequestContext.request.contextPath}}/img/product/l-product-5.jpg" alt="">
-                    </div>
-                    <div class="l_p_text">
-                        <ul>
-                            <li class="p_icon"><a href="#"><i class="icon_piechart"></i></a></li>
-                            <li><a class="add_cart_btn" href="#">Add To Cart</a></li>
-                            <li class="p_icon"><a href="#"><i class="icon_heart_alt"></i></a></li>
-                        </ul>
-                        <h4>Oxford Shirt</h4>
-                        <h5>$85.50</h5>
+                        </h5>&ndash;&gt;
                     </div>
                 </div>
             </div>
-            <div class="item">
+
+            &lt;!&ndash;<div class="item">
                 <div class="l_product_item">
                     <div class="l_p_img">
                         <img src="{{springMacroRequestContext.request.contextPath}}/img/product/l-product-2.jpg" alt="">
@@ -244,6 +272,8 @@
                     </div>
                 </div>
             </div>
+
+
             <div class="item">
                 <div class="l_product_item">
                     <div class="l_p_img">
@@ -306,10 +336,10 @@
                         <h5>$45.05</h5>
                     </div>
                 </div>
-            </div>
+            </div>&ndash;&gt;
         </div>
     </div>
-</section>
+</section>-->
 <!--================End Our Latest Product Area =================-->
 
 <!--================Feature Big Add Area =================-->
@@ -644,3 +674,31 @@
 <!--================End Form Blog Area =================-->
 
 {{> footer}}
+
+<script>
+    var vm = new Vue({
+        el: '#fileList',
+        data: {
+            fileArray: []
+        },
+        delimiters: ["{", "}"],
+        methods: {
+            onloadPage: function() {
+                axios.get('/file/allList'
+                ).then( (response) => {
+                    this.fileArray = response.data.fileList;
+                    console.log(this.fileArray);
+                });
+            },
+            goFileDetail: function(fileNo) {
+                console.log(fileNo);
+                location.href = '/file/detail/' + fileNo;
+            }
+        },
+        created: function () {
+            this.onloadPage();
+        }
+    });
+
+
+</script>

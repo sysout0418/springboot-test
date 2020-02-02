@@ -58,10 +58,4 @@ public class LoginController {
         return "user/myinfo";
     }
 
-    // 어드민 페이지
-    @GetMapping("/admin")
-    public String adminMain() {
-        return "admin/adminMain";
-    }
-
 }
